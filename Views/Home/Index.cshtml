@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Painel Inicial - Gerenciamento de Clientes";
+}
+
+<div class="container mt-5 text-center">
+    <h1 class="display-3 text-dark">
+        <i class="fas fa-user-cog text-primary"></i> Bem-vindo ao Painel de Clientes
+    </h1>
+    <p class="lead text-secondary mt-3">
+        Simplifique o gerenciamento de clientes com ferramentas completas para adicionar, consultar, atualizar e remover registros de forma ágil.
+    </p>
+
+    <hr class="my-4">
+
+    <div class="py-4">
+        <h2 class="text-primary">
+            <i class="fas fa-lightbulb"></i> Funcionalidades
+        </h2>
+        <p class="text-muted">Nosso sistema foi projetado para oferecer uma experiência intuitiva, segura e eficiente, atendendo às suas necessidades de gerenciamento de clientes. Com ele, você pode:</p>
+        <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+            <li class="list-group-item">
+                <i class="fas fa-user-plus text-success"></i> <strong>Adicionar Clientes</strong> - Registre novos clientes rapidamente.
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-search text-info"></i> <strong>Pesquisar Informações</strong> - Consulte dados detalhados de maneira fácil.
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-edit text-warning"></i> <strong>Atualizar Dados</strong> - Garanta que as informações estejam sempre atualizadas.
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-user-minus text-danger"></i> <strong>Remover Registros</strong> - Exclua clientes quando necessário.
+            </li>
+        </ul>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a class="btn btn-dark btn-lg" href="@Url.Action("Index", "Clientes")" role="button">
+            <i class="fas fa-list"></i> Ver Clientes
+        </a>
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Clientes")" role="button">
+            <i class="fas fa-user-plus"></i> Novo Cadastro
+        </a>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

@@ -1,0 +1,137 @@
+﻿@model CadastroPessoas.Models.Cliente
+
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-4 text-primary">
+    <i class="fas fa-user-plus"></i> Cadastro de Cliente
+</h1>
+
+<div class="card shadow-lg">
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">
+            <i class="fas fa-info-circle"></i> Preencha os dados do cliente
+        </h4>
+    </div>
+    <div class="card-body bg-light">
+        <form asp-action="Create" class="needs-validation" novalidate>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Nome" class="form-label fw-bold text-dark">Nome Completo</label>
+                    <input asp-for="Nome" class="form-control form-control-lg" placeholder="Digite o nome completo" required />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label asp-for="DataNascimento" class="form-label fw-bold text-dark">Data de Nascimento</label>
+                    <input asp-for="DataNascimento" type="date" class="form-control form-control-lg" required />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="RG" class="form-label fw-bold text-dark">RG</label>
+                    <input asp-for="RG" class="form-control form-control-lg" placeholder="Digite o RG" required />
+                    <span asp-validation-for="RG" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label asp-for="CPF" class="form-label fw-bold text-dark">CPF</label>
+                    <input asp-for="CPF" class="form-control form-control-lg" placeholder="Digite o CPF" required />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="CEP" class="form-label fw-bold text-dark">CEP</label>
+                    <input asp-for="CEP" id="CEP" class="form-control form-control-lg" onblur="SearchZipCode()" />
+                    <span asp-validation-for="CEP" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Complemento" class="form-label fw-bold text-dark">Complemento</label>
+                    <input asp-for="Complemento" class="form-control form-control-lg" placeholder="Ex.: Apto 101" />
+                    <span asp-validation-for="Complemento" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Logradouro" class="form-label fw-bold text-dark">Logradouro</label>
+                    <input asp-for="Logradouro" class="form-control form-control-lg" placeholder="Digite o endereço" required />
+                    <span asp-validation-for="Logradouro" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Bairro" class="form-label fw-bold text-dark">Bairro</label>
+                    <input asp-for="Bairro" class="form-control form-control-lg" placeholder="Digite o bairro" required />
+                    <span asp-validation-for="Bairro" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label asp-for="Cidade" class="form-label fw-bold text-dark">Cidade</label>
+                    <input asp-for="Cidade" class="form-control form-control-lg" placeholder="Digite a cidade" required />
+                    <span asp-validation-for="Cidade" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label asp-for="UF" class="form-label fw-bold text-dark">UF</label>
+                    <input asp-for="UF" class="form-control form-control-lg" maxlength="2" placeholder="Ex: SP" />
+                    <span asp-validation-for="UF" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="EstadoCivil" class="form-label fw-bold text-dark">Estado Civil</label>
+                <select asp-for="EstadoCivil" class="form-select form-select-lg" required>
+                    <option value="">Selecione...</option>
+                    <option value="Casado">Casado</option>
+                    <option value="Solteiro">Solteiro</option>
+                    <option value="Divorciado">Divorciado</option>
+                    <option value="Viuvo">Viúvo</option>
+                </select>
+                <span asp-validation-for="EstadoCivil" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="NomePai" class="form-label fw-bold text-dark">Nome do Pai</label>
+                <input asp-for="NomePai" class="form-control form-control-lg" placeholder="Digite o nome do pai" />
+                <span asp-validation-for="NomePai" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="NomeMae" class="form-label fw-bold text-dark">Nome da Mãe</label>
+                <input asp-for="NomeMae" class="form-control form-control-lg" placeholder="Digite o nome da mãe" />
+                <span asp-validation-for="NomeMae" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-success btn-lg">
+                    <i class="fas fa-save"></i> Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    @{
+        await Html.RenderPartialAsync("_CEPPartial");
+    }
+    @{
+        await Html.RenderPartialAsync("_ImaskTelefoneCEPPartial");
+    }
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

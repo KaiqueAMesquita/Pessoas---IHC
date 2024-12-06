@@ -1,0 +1,90 @@
+﻿@model CadastroPessoas.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center text-danger mb-4">
+    <i class="fas fa-user-times"></i> Excluir Cliente
+</h1>
+<p class="alert alert-warning">
+    <strong>Tem certeza que deseja remover este cliente?</strong> Esta ação é permanente e não poderá ser desfeita.
+</p>
+
+<h3 class="text-secondary">Informações do Cliente</h3>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.RG)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.RG)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.CPF)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.CPF)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Logradouro)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.CEP)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.CEP)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Cidade)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.UF)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UF)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <div class="mt-4 text-center">
+        <button type="submit" class="btn btn-danger btn-lg">
+            <i class="fas fa-trash-alt"></i> Confirmar Exclusão
+        </button>
+        <a asp-action="Index" class="btn btn-secondary btn-lg">
+            <i class="fas fa-arrow-left"></i> Cancelar e Voltar
+        </a>
+    </div>
+</form>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

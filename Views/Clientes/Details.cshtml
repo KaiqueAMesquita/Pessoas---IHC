@@ -1,0 +1,134 @@
+﻿@model CadastroPessoas.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes do Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center text-primary mb-4">
+    <i class="fas fa-user"></i> Detalhes do Cliente
+</h1>
+<hr />
+
+<h3 class="text-secondary">Informações Pessoais</h3>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.RG)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.RG)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.CPF)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.CPF)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.EstadoCivil)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.EstadoCivil)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<h3 class="text-secondary">Endereço</h3>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Logradouro)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Bairro)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Bairro)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Cidade)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.UF)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.UF)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.CEP)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.CEP)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.Complemento)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Complemento)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<h3 class="text-secondary">Filiação</h3>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.NomePai)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.NomePai)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">
+                @Html.DisplayNameFor(model => model.NomeMae)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.NomeMae)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary btn-lg">
+        <i class="fas fa-pencil-alt"></i> Editar
+    </a>
+    <a asp-action="Index" class="btn btn-secondary btn-lg">
+        <i class="fas fa-arrow-left"></i> Voltar para a Lista
+    </a>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
