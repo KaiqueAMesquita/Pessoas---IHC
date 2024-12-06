@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Cadastro";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    
 }
 
 <h1 class="text-center mb-4 text-primary">
@@ -117,6 +120,9 @@
                 <button type="submit" class="btn btn-success btn-lg">
                     <i class="fas fa-save"></i> Salvar
                 </button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
             </div>
         </form>
     </div>
@@ -135,3 +141,4 @@
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
